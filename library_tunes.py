@@ -196,6 +196,7 @@ try:
         print "ntp-hw: %s"%(ntpTime-time())
         ntpLastSync = int(time()) #localtime is only used relatively
     except:
+    	print "NTP unresponsive!!!"
     	ntpTime=time()
 
     timeto = sounds[0][0]-ntpTime
@@ -214,10 +215,12 @@ try:
 
     while 1:
         if int(time())>ntpLastSync+1800: #30 minutes
-            ntpResponse = ntpClock.request('dk.pool.ntp.org', version=3)
-            ntpTime = ntpResponse.tx_time
-            ntpLastSync = int(time())
-            print "NTP update: %s"%ntpTime
+            try:
+                ntpResponse = ntpClock.request('dk.pool.ntp.org', version=3)
+                ntpTime = ntpResponse.tx_time
+                ntpLastSync = int(time())
+                print "NTP update: %s"%ntpTime
+            except: print "NTP unresponsive!!!"
 
     #timekeeper - delay until next 1/100 second
 
