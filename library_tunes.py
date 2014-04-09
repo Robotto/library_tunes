@@ -139,7 +139,7 @@ def transaction_to_sound(line):
 
   #epoch = epoch+AYearInSeconds #offset data one year, so it can be synced to the current NTP time.
 
-  epoch = epoch-905620
+  #epoch = epoch-905620 #random offset to test middle of data stream in current time
 
   epoch+=random() #add random amount of 1/1000s of 1 second, to spread out the soundscape
 
