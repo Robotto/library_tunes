@@ -12,79 +12,79 @@ pygame.mixer.init()
 #load sounds:
 print "loading sounds.."
 aaby_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-aaby_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+aaby_a = pygame.mixer.Sound('util/beep.wav')
 aaby = {'u':aaby_u,'a':aaby_a} #dictionary
 
 beder_u = pygame.mixer.Sound('sounds/bed_u.wav')
 beder_a = pygame.mixer.Sound('sounds/bed_a.wav')
 beder = {'u':beder_u,'a':beder_a} #dictionary
 
-egaa_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-egaa_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+egaa_u = pygame.mixer.Sound('util/beep.wav')
+egaa_a = pygame.mixer.Sound('util/beep.wav')
 egaa = {'u':egaa_u,'a':egaa_a} #dictionary
 
-gellerup_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-gellerup_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+gellerup_u = pygame.mixer.Sound('util/beep.wav')
+gellerup_a = pygame.mixer.Sound('util/beep.wav')
 gellerup = {'u':gellerup_u,'a':gellerup_a} #dictionary
 
-hasselager_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-hasselager_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+hasselager_u = pygame.mixer.Sound('util/beep.wav')
+hasselager_a = pygame.mixer.Sound('util/beep.wav')
 hasselager = {'u':hasselager_u,'a':hasselager_a} #dictionary
 
-hasle_u = pygame.mixer.Sound('sounds/aaby_u.wav')
+hasle_u = pygame.mixer.Sound('util/beep.wav')
 hasle_a = pygame.mixer.Sound('sounds/hal_a.wav')
 hasle = {'u':hasle_u,'a':hasle_a} #dictionary
 
-harlev_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-harlev_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+harlev_u = pygame.mixer.Sound('util/beep.wav')
+harlev_a = pygame.mixer.Sound('util/beep.wav')
 harlev = {'u':harlev_u,'a':harlev_a} #dictionary
 
 hb_u = pygame.mixer.Sound('sounds/hb_u.wav')
 hb_a = pygame.mixer.Sound('sounds/hb_a.wav')
 hb = {'u':hb_u,'a':hb_a} #dictionary
 
-hjortshoj_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-hjortshoj_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+hjortshoj_u = pygame.mixer.Sound('util/beep.wav')
+hjortshoj_a = pygame.mixer.Sound('util/beep.wav')
 hjortshoj = {'u':hjortshoj_u,'a':hjortshoj_a} #dictionary
 
-hojbjerg_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-hojbjerg_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+hojbjerg_u = pygame.mixer.Sound('util/beep.wav')
+hojbjerg_a = pygame.mixer.Sound('util/beep.wav')
 hojbjerg = {'u':hojbjerg_u,'a':hojbjerg_a} #dictionary
 
-lystrup_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-lystrup_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+lystrup_u = pygame.mixer.Sound('util/beep.wav')
+lystrup_a = pygame.mixer.Sound('util/beep.wav')
 lystrup = {'u':lystrup_u,'a':lystrup_a} #dictionary
 
 risskov_u = pygame.mixer.Sound('sounds/hb_u.wav')
 risskov_a = pygame.mixer.Sound('sounds/hb_a.wav')
 risskov = {'u':risskov_u,'a':risskov_a} #dictionary
 
-sabro_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-sabro_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+sabro_u = pygame.mixer.Sound('util/beep.wav')
+sabro_a = pygame.mixer.Sound('util/beep.wav')
 sabro = {'u':sabro_u,'a':sabro_a} #dictionary
 
-skodstrup_u = pygame.mixer.Sound('sounds/aaby_u.wav')
+skodstrup_u = pygame.mixer.Sound('util/beep.wav')
 skodstrup_a = pygame.mixer.Sound('sounds/sko_a.wav')
 skodstrup = {'u':skodstrup_u,'a':skodstrup_a} #dictionary
 
-solbjerg_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-solbjerg_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+solbjerg_u = pygame.mixer.Sound('util/beep.wav')
+solbjerg_a = pygame.mixer.Sound('util/beep.wav')
 solbjerg = {'u':solbjerg_u,'a':solbjerg_a} #dictionary
 
-tranbjerg_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-tranbjerg_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+tranbjerg_u = pygame.mixer.Sound('util/beep.wav')
+tranbjerg_a = pygame.mixer.Sound('util/beep.wav')
 tranbjerg = {'u':tranbjerg_u,'a':tranbjerg_a} #dictionary
 
-trige_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-trige_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+trige_u = pygame.mixer.Sound('util/beep.wav')
+trige_a = pygame.mixer.Sound('util/beep.wav')
 trige = {'u':trige_u,'a':trige_a} #dictionary
 
-tilst_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-tilst_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+tilst_u = pygame.mixer.Sound('util/beep.wav')
+tilst_a = pygame.mixer.Sound('util/beep.wav')
 tilst = {'u':tilst_u,'a':tilst_a} #dictionary
 
 viby_u = pygame.mixer.Sound('sounds/vib_u.wav')
-viby_a = pygame.mixer.Sound('sounds/aaby_u.wav')
+viby_a = pygame.mixer.Sound('util/beep.wav')
 viby = {'u':viby_u,'a':viby_a} #dictionary
 
 #x_a_1 = pygame.mixer.Sound('sounds/x_a_1.wav')
