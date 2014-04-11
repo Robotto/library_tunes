@@ -7,7 +7,16 @@ import ntplib
 import pygame
 from random import random
 
+if len(sys.argv) == 1:
+    print "No parameters supplied.. "
+    print "Usage: %s <filename>" %sys.argv[0]
+    sys.exit(1)
+
+input_file = sys.argv[1]
+
 pygame.mixer.init()
+
+time_offset=-900250
 
 #load sounds:
 print "loading sounds.."
@@ -118,14 +127,6 @@ dictionaries={
 #print dictionaries
 
 
-
-if len(sys.argv) == 1:
-    print "No parameters supplied.. "
-    print "Usage: %s <filename>" %sys.argv[0]
-    sys.exit(1)
-
-input_file = sys.argv[1]
-
 AYearInSeconds = 31536000
 
 def transaction_to_sound(line):
@@ -139,13 +140,13 @@ def transaction_to_sound(line):
 
   #epoch = epoch+AYearInSeconds #offset data one year, so it can be synced to the current NTP time.
 
-  epoch = epoch-(811220+30124) #random offset to test middle of data stream in current time
+  epoch = epoch+time_offset #random offset to test middle of data stream in current time
 
   epoch+=random() #add random amount of 1/1000s of 1 second, to spread out the soundscape
 
   if transaction=='u':
-  	trstring='Udlaan fra'
-  else: trstring='Aflevering til'
+  	trstring='Udlaan fra %s'%library
+  else: trstring='Aflevering til %s'%library
   #print "TimeCode: %s" %epoch
   #print "Library: %s" %library
   #print "Transaction: %s" %transaction
@@ -194,17 +195,18 @@ try:
         print "ntp time: %s"%ntpTime
         print "hwclock time %s"%time()
         print "ntp-hw: %s"%(ntpTime-time())
-        ntpLastSync = int(time()) #localtime is only used relatively
     except:
     	print "NTP unresponsive!!!"
     	ntpTime=time()
+
+    ntpLastSync = int(time()) #localtime is only used relatively
 
     timeto = sounds[0][0]-ntpTime
 
     print "0 occurs %s seconds in the future"%timeto
 
     timestore = time()
-
+    echotime  = timestore
     index=0
 
     while sorted_by_fractions[index][0]<ntpTime: #forward the index pointer to a current time
@@ -212,6 +214,11 @@ try:
 
     print "index=%s"%index
     print sorted_by_fractions[195][0]
+
+    time_to_next_echo = sorted_by_fractions[index+1][0]-time()
+    print "Time to next echo: %s"%time_to_next_echo
+    echotime=timestore
+
 
     while 1:
         if int(time())>ntpLastSync+1800: #30 minutes
@@ -227,6 +234,7 @@ try:
     	while time()<timestore+0.1:
         	pass
 
+
     	ntpTime+=time()-timestore
 
 
@@ -237,11 +245,12 @@ try:
 
 
 		#(1398163052.4438782, 'ris', 'u')
-		#(1398163052.4438782, <Sound object at 0x7f08b62a2850>,'aby')
+		#(1398163052.4438782, <Sound object at 0x7f08b62a2850>,'aby', 'Udlaan fra')
+
     	if sorted_by_fractions[index][0]<=ntpTime:
 
     		timestring=strftime('%Y-%m-%d %H:%M:%S', localtime(sorted_by_fractions[index][0]))
-    		print "%s: %s %s"%(timestring,sorted_by_fractions[index][3],sorted_by_fractions[index][2])
+    		print "%s: %s"%(timestring,sorted_by_fractions[index][3])
 
     		sorted_by_fractions[index][1].play()
 
@@ -249,7 +258,11 @@ try:
 
         #print ntpTime
 
-
+        if echotime+5<timestore:
+        	if sorted_by_fractions[index][0]>time()+5:
+        		time_to_next_echo = sorted_by_fractions[index+1][0]-time()
+        		print "Time to next echo: %s"%time_to_next_echo
+        		echotime=timestore
 
 
 
