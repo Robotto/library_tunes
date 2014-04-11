@@ -16,7 +16,7 @@ input_file = sys.argv[1]
 
 pygame.mixer.init()
 
-time_offset=-900250
+time_offset=-774448
 
 #load sounds:
 print "loading sounds.."
@@ -140,9 +140,7 @@ def transaction_to_sound(line):
 
   #epoch = epoch+AYearInSeconds #offset data one year, so it can be synced to the current NTP time.
 
-  epoch = epoch+time_offset #random offset to test middle of data stream in current time
-
-  epoch+=random() #add random amount of 1/1000s of 1 second, to spread out the soundscape
+  #epoch+=random() #add random amount of 1/1000s of 1 second, to spread out the soundscape
 
   if transaction=='u':
   	trstring='Udlaan fra %s'%library
@@ -201,21 +199,24 @@ try:
 
     ntpLastSync = int(time()) #localtime is only used relatively
 
-    timeto = sounds[0][0]-ntpTime
+    timeto = sorted_by_fractions[195][0]-ntpTime
 
-    print "0 occurs %s seconds in the future"%timeto
+    print "Entry #195 occurs %s seconds in the future"%timeto
+
+    if raw_input("Would you like to offset it to now?")=='y':
+        offset=-timeto
+    else: offset=0
 
     timestore = time()
     echotime  = timestore
     index=0
 
-    while sorted_by_fractions[index][0]<ntpTime: #forward the index pointer to a current time
+    while (sorted_by_fractions[index][0]+offset)<ntpTime: #forward the index pointer to a current time
    	        index+=1
 
     print "index=%s"%index
-    print sorted_by_fractions[195][0]
 
-    time_to_next_echo = sorted_by_fractions[index+1][0]-time()
+    time_to_next_echo = (sorted_by_fractions[index][0]+offset)-time()
     print "Time to next echo: %s"%time_to_next_echo
     echotime=timestore
 
@@ -247,7 +248,7 @@ try:
 		#(1398163052.4438782, 'ris', 'u')
 		#(1398163052.4438782, <Sound object at 0x7f08b62a2850>,'aby', 'Udlaan fra')
 
-    	if sorted_by_fractions[index][0]<=ntpTime:
+    	if sorted_by_fractions[index][0]+offset<=ntpTime:
 
     		timestring=strftime('%Y-%m-%d %H:%M:%S', localtime(sorted_by_fractions[index][0]))
     		print "%s: %s"%(timestring,sorted_by_fractions[index][3])
@@ -259,8 +260,8 @@ try:
         #print ntpTime
 
         if echotime+5<timestore:
-        	if sorted_by_fractions[index][0]>time()+5:
-        		time_to_next_echo = sorted_by_fractions[index+1][0]-time()
+        	if (sorted_by_fractions[index][0]+offset-5)>time():
+        		time_to_next_echo = sorted_by_fractions[index][0]+offset-time()
         		print "Time to next echo: %s"%time_to_next_echo
         		echotime=timestore
 
