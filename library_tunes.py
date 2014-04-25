@@ -207,7 +207,7 @@ try:
 #       offset=-timeto
 #    else: offset=0
 
-    offset=0
+    offset=86400 #offset 1 day to match day of week. 2013 -> 2014
     timestore = time()
     echotime  = timestore
     index=0
