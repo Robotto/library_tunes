@@ -203,10 +203,11 @@ try:
 
     print "Entry #195 occurs %s seconds in the future"%timeto
 
-    if raw_input("Would you like to offset it to now?")=='y':
-        offset=-timeto
-    else: offset=0
+#    if raw_input("Would you like to offset it to now?")=='y':
+#       offset=-timeto
+#    else: offset=0
 
+    offset=0
     timestore = time()
     echotime  = timestore
     index=0
