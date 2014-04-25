@@ -255,7 +255,6 @@ try:
     		timestring=strftime('%Y-%m-%d %H:%M:%S', localtime(sorted_by_fractions[index][0]))
     		print "%s: %s"%(timestring,sorted_by_fractions[index][3])
 
-    		print sorted_by_fractions[index][1]
     		sorted_by_fractions[index][1].play()
 
 
