@@ -20,6 +20,7 @@ pygame.mixer.init()
 
 #load sounds:
 print "loading sounds.."
+
 aaby_u = pygame.mixer.Sound('sounds/aaby_u.wav')
 aaby_a = pygame.mixer.Sound('sounds/aaby_a.wav')
 aaby = {'u':aaby_u,'a':aaby_a} #dictionary
@@ -105,22 +106,22 @@ dictionaries={
 'aby': aaby,
 'bed' : beder,
 'ega' : egaa,
-'gel':gellerup,
-'hag':hasselager,
-'hal':hasle,
-'har':harlev,
-'hb':hb,
-'hjo':hjortshoj,
-'hoj':hojbjerg,
-'lys':lystrup,
-'ris':risskov,
-'sab':sabro,
-'sko':skodstrup,
-'sol':solbjerg,
-'tra':tranbjerg,
-'tri':trige,
-'tst':tilst,
-'vib':viby }
+'gel': gellerup,
+'hag': hasselager,
+'hal': hasle,
+'har': harlev,
+'hb': hb,
+'hjo': hjortshoj,
+'hoj': hojbjerg,
+'lys': lystrup,
+'ris': risskov,
+'sab': sabro,
+'sko': skodstrup,
+'sol': solbjerg,
+'tra': tranbjerg,
+'tri': trige,
+'tst': tilst,
+'vib': viby }
 
 #print "dictionaries:"
 #print
@@ -254,7 +255,9 @@ try:
     		timestring=strftime('%Y-%m-%d %H:%M:%S', localtime(sorted_by_fractions[index][0]))
     		print "%s: %s"%(timestring,sorted_by_fractions[index][3])
 
+    		print sorted_by_fractions[index][1]
     		sorted_by_fractions[index][1].play()
+
 
     		index+=1
 
