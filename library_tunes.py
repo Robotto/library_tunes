@@ -204,11 +204,12 @@ try:
 
     print "Entry #195 occurs %s seconds in the future"%timeto
 
-#    if raw_input("Would you like to offset it to now?")=='y':
-#       offset=-timeto
-#    else: offset=0
+    if len(sys.argv) == 3:
+      if raw_input("Would you like to offset it to now?")=='y':
+        offset=-timeto
+    else: offset=86400
+    #offset=86400 #offset 1 day to match day of week. 2013 -> 2014
 
-    offset=86400 #offset 1 day to match day of week. 2013 -> 2014
     timestore = time()
     echotime  = timestore
     index=0
