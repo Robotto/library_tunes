@@ -21,8 +21,8 @@ pygame.mixer.init()
 #load sounds:
 print "loading sounds.."
 
-aaby_u = pygame.mixer.Sound('sounds/aaby_u.wav')
-aaby_a = pygame.mixer.Sound('sounds/aaby_a.wav')
+aaby_u = pygame.mixer.Sound('sounds/aby_u.wav')
+aaby_a = pygame.mixer.Sound('sounds/aby_a.wav')
 aaby = {'u':aaby_u,'a':aaby_a} #dictionary
 
 beder_u = pygame.mixer.Sound('sounds/bed_u.wav')
