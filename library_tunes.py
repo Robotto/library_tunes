@@ -204,7 +204,7 @@ try:
 
     print "Entry #195 occurs %s seconds in the future"%timeto
 
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 2:
       if raw_input("Would you like to offset it to now?")=='y':
         offset=-timeto
     else: offset=86400
